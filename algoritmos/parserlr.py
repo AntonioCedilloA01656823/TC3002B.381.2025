@@ -101,6 +101,11 @@ class Grammar2(GrammarLR):
     def __init__(self):
         super().__init__('table_lr_2.csv', 'grammar_2.csv')
 
+class GrammarN(GrammarLR):
+    def __init__(self):
+        super().__init__('table_lr_N.csv', 'grammar_N.csv')
+
 if __name__ == '__main__':
-    Grammar1().parse('x+y*x*y')
+    #Grammar1().parse('x+y*x*y')
     #Grammar2().parse('a')
+    GrammarN().parse('((a),a,(a,a))')

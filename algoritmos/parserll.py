@@ -21,7 +21,7 @@ class stack(list):
 # Cargar tabla de parsing LL (no terminales contra terminales)
 def load_rules(table, path):
     rules = {}
-    with open(path + '\\' + table, 'r', encoding='utf-8') as data_file:
+    with open(path + '/' + table, 'r', encoding='utf-8') as data_file:
         reader = csv.DictReader(data_file)
         for row in reader:
             copy_row = copy.copy(row)
@@ -100,7 +100,7 @@ F -> a
 
 '''
 class GrammarLL:
-    def __init__(self, table, path='grammars/'):
+    def __init__(self, table, path='grammars'):
         self.rules = load_rules(table, path)
 
     def parse(self, str):
@@ -124,14 +124,14 @@ class Grammar4(GrammarLL):
 
 class Grammarn(GrammarLL):
     def __init__(self):
-        super().__init__(path=r"C:\Users\jcordoba\Downloads\tarea3.1\rosetefloresrodrigoaldahir_115216_179225432_Actividad 3.2. Gramáticas libres de contexto\Actividad 3.2. Gram ticas libres de contexto", table="table_ll_4.csv")
+        super().__init__('table_ll_N.csv')
 
 
 if __name__ == '__main__':
     #Grammar1().parse('((a+a)+a)')
     #Grammar2().parse('(())()')
     #Grammar3().parse('i+i*i')
-    Grammar4().parse('n+n+n')
+    #Grammar4().parse('n+n+n')
     Grammarn().parse('i(0)i(1)oeo')
 
 
